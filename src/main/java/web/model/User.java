@@ -6,7 +6,7 @@ import javax.persistence.*;
     public class User {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+        private int id;
 
         @Column
         private String name;
@@ -17,11 +17,32 @@ import javax.persistence.*;
         @Column
         private Byte age;
 
+        public User() {
+        }
+
+        public User(int id, String name, String lastName, Byte age) {
+            this.id = id;
+            this.name = name;
+            this.lastName = lastName;
+            this.age = age;
+        }
+
+        public User(int id) {
+            this.id = id;
+        }
+
         public String getName() {
             return name;
         }
 
 
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public void setName(String name) {
             this.name = name;
